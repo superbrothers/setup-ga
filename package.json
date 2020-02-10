@@ -1,0 +1,58 @@
+{
+  "name": "setup-ga",
+  "version": "1.0.0",
+  "private": true,
+  "description": "setup ga action",
+  "main": "lib/main.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint **/*.ts",
+    "lint:fix": "eslint --fix src/**/*.ts",
+    "build": "tsc && ncc build",
+    "start": "ts-node ./src/index.ts",
+    "ts-node": "ts-node",
+    "verify": "./hack/verify-dist.sh",
+    "precommit": "npm run verify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superbrothers/setup-ga.git"
+  },
+  "author": "Kazuki Suda <kazuki.suda@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/superbrothers/setup-ga/issues"
+  },
+  "homepage": "https://github.com/superbrothers/setup-ga#readme",
+  "devDependencies": {
+    "@types/jest": "^25.1.2",
+    "@types/node": "^13.7.0",
+    "@typescript-eslint/eslint-plugin": "^2.19.2",
+    "@typescript-eslint/parser": "^2.19.2",
+    "@zeit/ncc": "^0.21.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.1",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "ts-jest": "^25.2.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.2",
+    "@actions/exec": "^1.0.3",
+    "@actions/io": "^1.0.2",
+    "@actions/tool-cache": "^1.3.1",
+    "@octokit/rest": "^16.43.1"
+  },
+  "jest": {
+    "preset": "ts-jest"
+  },
+  "husky": {
+    "hooks": {
+      "precommit": "precommit"
+    }
+  }
+}

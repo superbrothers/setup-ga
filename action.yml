@@ -1,0 +1,10 @@
+name: 'Setup GA tool'
+description: 'Setup a GitHub Actions helper tool and add it to the PATH'
+author: 'Kazuki Suda'
+inputs:
+  ga-version:
+    description: 'The GA version to download (if necessary) and use. Defaults to latest.'
+    required: false
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
