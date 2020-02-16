@@ -28,7 +28,7 @@ steps:
 ```
 
 This action supports only GNU/Linux environment. If you want to use it on other platforms, you can install ga directly to your environment:
-```
+```yaml
 jobs:
   run:
     runs-on: windows-latest
