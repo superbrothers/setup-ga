@@ -1,0 +1,45 @@
+name: ga-versions
+
+on:
+  push:
+    branches: [master]
+    paths-ignore: ["**.md"]
+  pull_request:
+    paths-ignore: ["**.md"]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: setup-ga
+      uses: ./
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: validate version
+      run: ga --version
+    - name: setup-ga 0.1.0
+      uses: ./
+      with:
+        ga-version: 0.1.0
+    - name: validate version
+      run: |
+        ga --version | grep "0.1.0"
+    - name: setup-ga v0.1.0
+      uses: ./
+      with:
+        ga-version: v0.1.0
+    - name: validate version
+      run: |
+        ga --version | grep "0.1.0"
+  npm:
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/setup-node@v1
+      with:
+        node-version: "12.x"
+    - run: npm install -g @superbrothers/ga
+    - run: ga --version
