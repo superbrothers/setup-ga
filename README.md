@@ -45,6 +45,12 @@ jobs:
         ga set-output version "$version"
 ```
 
+## Using setup-ga on a self-hosted runner
+
+If you want to use setup-ga on a [self-hosted-runner](https://help.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners), please install Docker Engine on your machine in advance.
+
+- [Get Docker Engine \- Community for Ubuntu \| Docker Documentation](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+
 ## License
 
 This software is released under the MIT License.
